@@ -30,10 +30,10 @@ Para facilitar minha gestão, utilizo consultas como esta para verificar quais c
 
 ```sql
 SELECT 
-    a.nome AS Nome_do_Cão, 
-    v.nome_vacina AS Vacina, 
-    vac.data_aplicacao AS Data_da_Dose
-FROM animais a
-JOIN vacinacao vac ON a.id_animal = vac.id_animal
-JOIN vacinas v ON vac.id_vacina = v.id_vacina
-ORDER BY vac.data_aplicacao ASC;
+    animais.nome AS Nome_do_Cão, 
+    vacinas.nome_vacina AS Vacina, 
+    vacinacao.data_vacinacao AS Data_da_Dose
+FROM animais 
+JOIN vacinacao ON animais.id_animal = vacinacao.id_animal
+JOIN vacinas  ON vacinas.id_vacina = vacinacao.id_vacina
+ORDER BY vacinacao.data_vacinacao ASC;
