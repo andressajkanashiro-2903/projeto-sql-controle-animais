@@ -17,10 +17,10 @@ Aplicar conhecimentos de modelagem relacional e SQL para organizar dados de:
   
 ## 📊 Estrutura do Banco
 O banco de dados é composto por 8 tabelas integradas:
-1. `animais`: Identificação de cada cão.
+1. `animal`: Identificação de cada cão.
 2. `veterinario`: Registro dos profissionais que realizam os atendimentos.
 3. `atendimento_veterinario`: Prontuário das consultas realizadas.
-4. `vacinas` & `vacinacao`: Catálogo de tipos de vacinas e registro de aplicações.
+4. `vacina` & `vacinacao`: Catálogo de tipos de vacinas e registro de aplicações.
 5. `vermifugo` & `vermifugacao`: Controle de marcas e datas de desverminação.
 6. `fabricante`: Gestão dos laboratórios dos medicamentos utilizados.
 
@@ -30,10 +30,10 @@ Para facilitar minha gestão, utilizo consultas como esta para verificar quais c
 
 ```sql
 SELECT 
-    animais.nome AS Nome_do_Cão, 
-    vacinas.nome_vacina AS Vacina, 
+    animal.nome AS Nome_do_Cão, 
+    vacina.nome_vacina AS Vacina, 
     vacinacao.data_vacinacao AS Data_da_Dose
-FROM animais 
-JOIN vacinacao ON animais.id_animal = vacinacao.id_animal
-JOIN vacinas  ON vacinas.id_vacina = vacinacao.id_vacina
+FROM animal 
+JOIN vacinacao ON animal.id_animal = vacinacao.id_animal
+JOIN vacina  ON vacina.id_vacina = vacinacao.id_vacina
 ORDER BY vacinacao.data_vacinacao ASC;
